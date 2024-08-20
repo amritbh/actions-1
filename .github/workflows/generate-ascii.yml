@@ -4,17 +4,19 @@ on:
     push
 
 jobs:
-    first_job:
+    ascii_job:
         runs-on: ubuntu-latest
         steps:
         - name: checkout Repo
           uses: actions/checkout@v4
-          
+
         - name: List Repo files
           run: ls -ltra
      
         - name: Executing shell script
-          run: ./ascii-script.sh
+          run: |
+            chmod +x ./ascii-script.sh
+            ./ascii-script.sh
 
         # - name: Install Cowsay program
         #   run: sudo apt-get install cowsay -y
